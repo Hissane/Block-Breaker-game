@@ -2,7 +2,7 @@
 
 public class Ball : MonoBehaviour {
 
-  public GameManager gm ;
+  //public GameManager gm ;
 
     // config params
     [SerializeField] Paddle paddle1;
@@ -51,7 +51,7 @@ public class Ball : MonoBehaviour {
         Vector2 paddlePos = new Vector2(paddle1.transform.position.x, paddle1.transform.position.y);
         transform.position = paddlePos + paddleToBallVector;
     }
-
+    //GameManager gm = new GameManager();
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Vector2 velocityTweak = new Vector2
@@ -62,7 +62,7 @@ public class Ball : MonoBehaviour {
             AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
             myAudioSource.PlayOneShot(clip);
             myRigidBody2D.velocity += velocityTweak;
-            gm.UpdateScore(collision.gameObject.GetComponent<BrickScript>().points);
+            //gm.UpdateScore(collision.gameObject.GetComponent<BrickScript>().points);
 
         }
     }
